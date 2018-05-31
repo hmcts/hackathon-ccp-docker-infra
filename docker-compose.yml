@@ -1,0 +1,16 @@
+---
+version: '2.1'
+
+services:
+  ccd-case-management-web:
+    image: hmcts/ccd-case-management-web:latest
+    environment:
+      - IDAM_LOGIN_URL=https://localhost:8000/login
+      - CCD_GATEWAY_BASE_URL=http://localhost:3453
+      - CCD_ACTIVITY_BASE_URL=http://localhost:3455
+      - DM_URL=http://localhost:3451/documents
+      - DM_URL_REMOTE=http://localhost:4460/documents
+    mem_limit: 256m
+    ports:
+      - 3451:3451
+    memswap_limit: 0
